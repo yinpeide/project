@@ -17,7 +17,7 @@ public class DateUtils {
 	 * @param date
 	 * @param format
 	 * @return
-	 */
+	 */ 
     public static String format(Date date, String format) {
         if (date == null)
             return "";
