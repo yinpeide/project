@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc
+						http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+						http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/context
+          				http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+      
+      
+    <!-- 1.对所有对controller进行扫描 -->
+	<context:component-scan base-package="com.itcast.web.controller"/>
+    <!-- springmvc 注解驱动 ,redirect的时候后面参数取消掉  	-->  			
+    <mvc:annotation-driven  ignoreDefaultModelOnRedirect="true" />
+    
+	<!-- 2.内部资源视图解析器 -->
+	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 规则：前缀+逻辑名+后缀   /WEB-INF/pages/index.jsp -->
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=""/>
+	</bean>
+	
+    <!-- 3.文件上传视图解析器  ，规定：id名称必须multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<property name="maxUploadSize" value="10485760"/><!-- 10M -->
+    </bean>
+	
+	<!-- 4.配置一个拦截器 
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.itcast.interceptor.SessionInterceptor" >
+	            <property name="excludedUrls">
+	                <list>
+	                    <value>/login.action</value>
+	                </list>
+	            </property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>-->
+	
+	<!-- 登陆错误抛异常 跳转页面
+	<bean id="handlerExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <property name="exceptionMappings">
+        <props>
+            <prop key="com.itcast.exception.AuthorizationException">redirect:/login.action</prop>
+        </props>
+    </property>
+</bean> -->
+</beans>
