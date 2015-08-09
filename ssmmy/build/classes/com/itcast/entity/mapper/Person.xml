@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.entity.Person">
+	<resultMap type="com.itcast.entity.Person" id="personRM">
+		<result property="id" column="ID" />
+		<result property="userName" column="USER_NAME" />
+		<result property="userAge" column="USER_AGE" />
+		<result property="remark" column="REMARK" />
+		<result property="password" column="PASSWORD"/>
+		<result property="joinDate" column="JOIN_DATE"/>
+	</resultMap>
+	
+	<sql id="paramsSql">
+		id,user_name,user_age,remark,password,join_date
+	</sql>
+	
+	<!-- 主键获取 -->
+	<select id="getById" parameterType="int" resultMap="personRM">
+		select <include refid="paramsSql"/> from person where id = #{id}
+	</select>
+	
+	<!-- 根据条件查询 -->
+	<select id="query" parameterType="map" resultMap="personRM">
+		select <include refid="paramsSql"/> from person 
+			<where>
+				<if test="userName!=null">and user_name = #{userName} </if>
+				<if test="userAge!=null">and user_age = #{userAge} </if>
+				<if test="remark!=null">and remark = #{remark} </if>
+				<if test="password!=null">and password=#{password}</if>
+			</where>
+			order by id 
+	</select>
+	
+	<!-- 插入 -->
+	<insert id="insert" parameterType="com.itcast.entity.Person">
+		insert into person (<include refid="paramsSql"/> ) values (
+			person_seq.nextval,
+			#{userName},
+			#{userAge},
+			#{remark},
+			1,
+			#{joinDate}
+		)
+	</insert>
+	
+	<!-- 修改 -->
+	<update id="update" parameterType="com.itcast.entity.Person" >
+		update person 
+			<set>
+				<if test="userName!=null">user_name=#{userName},</if>
+				<if test="userAge!=null">user_age=#{userAge},</if>
+				<if test="remark!=null">remark=#{remark},</if>
+				<if test="joinDate!=null">join_date=#{joinDate},</if>
+			</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
+	<!-- 主键删除 -->
+	<delete id="deleteById" parameterType="int" >
+		delete from person where id = #{id} 		
+	</delete>
+	
+	<!-- 批量删除 -->
+	<delete id="delete" parameterType="int">
+		delete from person where id in 
+		<foreach collection="list" item="id" open="(" close=")" separator=",">
+			 #{id}
+		</foreach>
+	</delete>
+	
+	
+</mapper>
