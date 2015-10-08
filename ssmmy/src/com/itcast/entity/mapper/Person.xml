@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<sql id="paramsSql">
-		id,user_name,user_age,remark,password,join_date
+		user_name,user_age,remark,password,join_date
 	</sql>
 	
 	<!-- 主键获取 -->
@@ -33,7 +33,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			order by id 
 	</select>
 	
-	<!-- 插入 -->
+	<!--  mysql插入-->
+	<insert id="insert" parameterType="com.itcast.entity.Person">
+	insert into person (<include refid="paramsSql"/> ) values (
+		#{userName},
+		#{userAge},
+		#{remark},
+		1,
+		#{joinDate}
+	)
+	</insert>
+	<!-- oracle插入 
 	<insert id="insert" parameterType="com.itcast.entity.Person">
 		insert into person (<include refid="paramsSql"/> ) values (
 			person_seq.nextval,
@@ -44,7 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{joinDate}
 		)
 	</insert>
-	
+	-->
 	<!-- 修改 -->
 	<update id="update" parameterType="com.itcast.entity.Person" >
 		update person 

@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
-import org.springframework.stereotype.Repository;
 
 import com.itcast.base.dao.IBaseDao;
 
@@ -42,11 +41,13 @@ public abstract class BaseDaoImpl<T,PK> extends SqlSessionDaoSupport implements 
 	/**
 	 * 查询全部
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<T> findList(Map map) {
 		return this.findList(KEY_QUERY,map);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<T> findList(String key, Map map) {
 		return this.getSqlSession().selectList(this.sqlKey(key), map);

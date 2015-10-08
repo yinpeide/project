@@ -3,9 +3,6 @@
  */
 package com.itcast.dao;
 
-import java.util.List;
-import java.util.Map;
-
 import com.itcast.base.dao.IBaseDao;
 import com.itcast.entity.Person;
 

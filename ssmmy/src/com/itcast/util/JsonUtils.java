@@ -53,6 +53,7 @@ public class JsonUtils {
 	 * @param entity
 	 * @return
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static Object toEntity(String json,Class entity){
 		ObjectMapper mapper = new ObjectMapper();
 		Object result=null;

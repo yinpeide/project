@@ -15,7 +15,9 @@ public interface IBaseDao <T,PK>{
 	 * @param map
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public List<T> findList(Map map);
+	@SuppressWarnings("rawtypes")
 	public List<T> findList(String key,Map map);
 	/**
 	 * 根据主键查询

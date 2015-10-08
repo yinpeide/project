@@ -5,14 +5,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Service;
-
 import com.itcast.base.dao.IBaseDao;
 import com.itcast.base.service.IBaseService;
 
-
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class BaseServiceImpl<T,PK> implements IBaseService<T,PK>{
 
+	
 	@Resource
 	private IBaseDao baseDao;
 	
@@ -21,6 +20,7 @@ public class BaseServiceImpl<T,PK> implements IBaseService<T,PK>{
 		return (T) baseDao.save(t);
 	}
 
+	
 	@Override
 	public T getById(PK id) {
 		return (T) baseDao.getById(id);
