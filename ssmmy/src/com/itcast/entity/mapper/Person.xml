@@ -18,12 +18,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 主键获取 -->
 	<select id="getById" parameterType="int" resultMap="personRM">
-		select <include refid="paramsSql"/> from person where id = #{id}
+		select id,<include refid="paramsSql"/> from person where id = #{id}
 	</select>
 	
 	<!-- 根据条件查询 -->
 	<select id="query" parameterType="map" resultMap="personRM">
-		select <include refid="paramsSql"/> from person 
+		select id,<include refid="paramsSql"/> from person 
 			<where>
 				<if test="userName!=null">and user_name = #{userName} </if>
 				<if test="userAge!=null">and user_age = #{userAge} </if>
