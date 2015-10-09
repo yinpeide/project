@@ -206,6 +206,27 @@
 		<artifactId>commons-logging</artifactId>
 		<version>1.2</version>
 	</dependency>
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-servlet-api</artifactId>
+		<version>8.0.27</version>
+	</dependency>
+	<dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>mail</artifactId>
+		<version>1.4.7</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>3.13</version>
+	</dependency>
+	<dependency>
+		<groupId>com.itextpdf</groupId>
+		<artifactId>itextpdf</artifactId>
+		<version>5.5.7</version>
+	</dependency>
+
   </dependencies>
   <build>
     <finalName>mymaven</finalName>
