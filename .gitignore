@@ -6,4 +6,9 @@ bin/
 .classpath
 .settings/
 build/
+.DS_Store
 
+/springmvcmy/
+/ssmmanven/
+/ssmmy/
+/utils/
