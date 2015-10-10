@@ -27,7 +27,7 @@ public class LoginController extends BaseController{
 	 * @param password
 	 * @return
 	 */
-	@RequestMapping("/login.action")
+	@RequestMapping("login.action")
 	public String login(String name,String passwd,Model model,HttpSession session){
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("name", name);
@@ -41,6 +41,18 @@ public class LoginController extends BaseController{
 				model.addAttribute("error", "亲爱的，您还没有权限登录系统哦");
 				return "login.jsp";
 		}
-			
+	}	
+	
+	/**
+	 * 推出
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("logout.action")
+	public String logout(Model model,HttpSession session){
+			session.invalidate();
+			return "redirect:/login.action";
 	}
+	
 }

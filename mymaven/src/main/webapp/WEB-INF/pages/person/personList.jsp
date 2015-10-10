@@ -22,6 +22,7 @@
 		<div style="padding: 10px">
 			<a href="${pageContext.request.contextPath}/person/toadd.action" >新增</a>
 			<a href="#" onclick="deletSubmit();">批量删除</a>
+			<a href="${pageContext.request.contextPath}/logout.action" >推出</a>
 		</div>
 		<table border="1">
 			<tr>
