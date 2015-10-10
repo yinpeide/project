@@ -31,8 +31,8 @@
 	<!-- 4.配置一个拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-		<!-- 不能瞎写，还是要写能访问的url -->
-			<mvc:mapping path="/**/*"/>
+		<!-- 拦截器主要测试一下这个path -->
+			<mvc:mapping path="/person/list.action"/>
 			<bean class="com.itcast.interceptor.SessionInterceptor" >
 	          <property name="allowUrls">  
 	            <list>  
@@ -43,7 +43,5 @@
 			</bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
-	
 	
 </beans>

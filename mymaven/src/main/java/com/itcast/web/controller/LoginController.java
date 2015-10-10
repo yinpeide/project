@@ -37,9 +37,9 @@ public class LoginController extends BaseController{
 			session.setAttribute("name",name);
 			model.addAttribute("loginDataList", loginDataList);
 			return "redirect:/person/list.action";
-		}else{
-				model.addAttribute("error", "亲爱的，您还没有权限登录系统哦");
-				return "login.jsp";
+		}else{	
+				session.setAttribute("error", "亲爱的，您还没有权限登录系统哦");
+				return "redirect:/index.jsp";
 		}
 	}	
 	
@@ -52,7 +52,7 @@ public class LoginController extends BaseController{
 	@RequestMapping("logout.action")
 	public String logout(Model model,HttpSession session){
 			session.invalidate();
-			return "redirect:/login.action";
+			return "redirect:/index.jsp";
 	}
 	
 }

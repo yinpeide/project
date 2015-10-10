@@ -13,6 +13,7 @@
 </script>
 </head>
 <body>
+	<span >${error}</span>
 	<form method="post" >
 		账号
 		<input type="text" name="name" ><br>
