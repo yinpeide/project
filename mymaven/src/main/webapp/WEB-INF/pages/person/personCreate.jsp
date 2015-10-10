@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<span>${username}</span>
+<span>${name}</span>
     <form action="${pageContext.request.contextPath}/person/add.action" method="post">
 		姓名<input type="text" name="userName" ><br>
 		年龄<input type="text" name="userAge" ><br>

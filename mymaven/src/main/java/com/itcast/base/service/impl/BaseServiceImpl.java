@@ -12,9 +12,20 @@ import com.itcast.base.service.IBaseService;
 public class BaseServiceImpl<T,PK> implements IBaseService<T,PK>{
 
 	
-	@Resource
-	private IBaseDao baseDao;
+	private IBaseDao<T,PK> baseDao;
 	
+
+
+	public IBaseDao<T, PK> getBaseDao() {
+		return baseDao;
+	}
+
+
+	public void setBaseDao(IBaseDao<T, PK> baseDao) {
+		this.baseDao = baseDao;
+	}
+
+
 	@Override
 	public T save(T t) {
 		return (T) baseDao.save(t);

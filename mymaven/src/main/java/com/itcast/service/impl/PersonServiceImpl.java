@@ -7,8 +7,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.itcast.base.dao.IBaseDao;
 import com.itcast.base.service.impl.BaseServiceImpl;
 import com.itcast.dao.PersonDao;
+import com.itcast.entity.LoginInfo;
 import com.itcast.entity.Person;
 import com.itcast.service.PersonService;
 
@@ -18,6 +20,12 @@ import com.itcast.service.PersonService;
  */
 @Service("personService")
 public class PersonServiceImpl extends BaseServiceImpl<Person,Integer> implements PersonService{
+	
+	@Resource(name = "personDao")
+	public void setBaseDao(IBaseDao<Person, Integer> baseDao) {
+		super.setBaseDao(baseDao);
+	}
+	
 	@Resource(name="personDao")
 	private PersonDao personDao;
 

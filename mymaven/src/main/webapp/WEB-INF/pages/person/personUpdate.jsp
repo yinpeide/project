@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<span>${username}</span>
+<span>${name}</span>
     <form action="${pageContext.request.contextPath}/person/update.action" method="post" enctype="multipart/form-data">
     	<input type="hidden" name="id" value="${person.id }"><br>
 		姓名<input type="text" name="userName" value="${person.userName }"><br>

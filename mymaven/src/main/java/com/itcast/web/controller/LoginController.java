@@ -36,10 +36,11 @@ public class LoginController extends BaseController{
 		if(loginDataList.size() > 0){
 			session.setAttribute("name",name);
 			model.addAttribute("loginDataList", loginDataList);
-			return "person/personList.jsp";
+			return "redirect:/person/list.action";
 		}else{
 				model.addAttribute("error", "亲爱的，您还没有权限登录系统哦");
+				return "login.jsp";
 		}
-			return "login.jsp";
-		}
+			
+	}
 }
