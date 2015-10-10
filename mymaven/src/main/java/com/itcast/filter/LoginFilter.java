@@ -45,12 +45,6 @@ public class LoginFilter implements Filter {
 	            }
 	        }
 	        
-	        // 登陆页面无需过滤
-	        if(path.indexOf("/index.jsp") > -1) {
-	            chain.doFilter(servletRequest, servletResponse);
-	            return;
-	        }
-	
 	        // 判断如果没有取到员工信息,就跳转到登陆页面
 	        if (name == null || "".equals(name)) {
 	            // 跳转到登陆页面
@@ -59,7 +53,6 @@ public class LoginFilter implements Filter {
 	            // 已经登陆,继续此次请求
 	            chain.doFilter(request, response);
 	        }
-	
 	    }
 	
 	    @Override
