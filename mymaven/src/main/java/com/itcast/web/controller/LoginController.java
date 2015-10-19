@@ -39,7 +39,7 @@ public class LoginController extends BaseController{
 			return "redirect:/person/list.action";
 		}else{	
 				session.setAttribute("error", "亲爱的，您还没有权限登录系统哦");
-				return "redirect:/index.jsp";
+				return "redirect:/index";
 		}
 	}	
 	

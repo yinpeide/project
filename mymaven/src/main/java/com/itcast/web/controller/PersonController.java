@@ -5,14 +5,10 @@ package com.itcast.web.controller;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
-import org.apache.poi.ss.usermodel.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +17,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.itcast.entity.Person;
 import com.itcast.service.PersonService;
-import com.itcast.util.DateUtils;
 
 /**
  * @author 尹培德
  * @time 2015年7月29日上午9:22:32
  */
 @Controller
+@RequestMapping("/person")
 public class PersonController extends BaseController{
 		
 	
@@ -39,11 +35,11 @@ public class PersonController extends BaseController{
 		 * @param model
 		 * @return
 		 */
-		@RequestMapping("/person/list.action")
+		@RequestMapping("list.action")
 		public String list(Model model){
 			List<Person> list = personService.findList(null);
 			model.addAttribute("personList", list);
-			return "person/personList.jsp";
+			return "person/personList";
 		}
 		
 		/**
@@ -51,9 +47,9 @@ public class PersonController extends BaseController{
 		 * @param model
 		 * @return
 		 */
-		@RequestMapping("/person/toadd.action")
+		@RequestMapping("toadd.action")
 		public String toAdd(Model model){
-			return "person/personCreate.jsp";
+			return "person/personCreate";
 		}
 		
 		/**
@@ -64,7 +60,7 @@ public class PersonController extends BaseController{
 		 * @param remark
 		 * @return
 		 */
-		@RequestMapping("/person/add.action")
+		@RequestMapping("add.action")
 		public String add(String userName,int userAge,String remark,Date joinDate){
 			Person p = new Person();
 			p.setUserName(userName);
@@ -81,11 +77,11 @@ public class PersonController extends BaseController{
 		 * @param model
 		 * @return
 		 */
-		@RequestMapping("/person/toupdate.action")
+		@RequestMapping("toupdate.action")
 		public String toUpdate(Integer id,Model model){
 			Person p = personService.getById(id);
 			model.addAttribute("person", p);
-			return "person/personUpdate.jsp";
+			return "person/personUpdate";
 		}
 		/**
 		 * 修改队友
@@ -93,7 +89,7 @@ public class PersonController extends BaseController{
 		 * @return
 		 * @throws IOException 
 		 */
-		@RequestMapping("/person/update.action")
+		@RequestMapping("update.action")
 		public String update(Person p,@RequestParam(required=true)MultipartFile uploadfile) throws IOException{
 			//FileUtils.writeByteArrayToFile(new File("d:/b.png"), uploadfile.getBytes());
 			personService.update(p);
@@ -105,7 +101,7 @@ public class PersonController extends BaseController{
 		 * @param id
 		 * @return
 		 */
-		@RequestMapping("/person/deletebyid.action")
+		@RequestMapping("deletebyid.action")
 		public String deleteById(Integer id){
 			personService.delete(id);
 			return "redirect:/person/list.action";
@@ -116,7 +112,7 @@ public class PersonController extends BaseController{
 		 * @param ids
 		 * @return
 		 */
-		@RequestMapping("/person/delete.action")
+		@RequestMapping("delete.action")
 		public String delete(@RequestParam("id") List<Integer> ids){
 			personService.delete(ids);
 			return "redirect:/person/list.action";

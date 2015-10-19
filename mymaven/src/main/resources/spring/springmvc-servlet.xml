@@ -21,7 +21,7 @@
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 规则：前缀+逻辑名+后缀   /WEB-INF/pages/index.jsp -->
 		<property name="prefix" value="/WEB-INF/pages/"/>
-		<property name="suffix" value=""/>
+		<property name="suffix" value=".jsp"/>
 	</bean>
 	
     <!-- 3.文件上传视图解析器  ，规定：id名称必须multipartResolver-->
@@ -34,6 +34,26 @@
         <property name="maxInMemorySize" value="40960" />   
     </bean>
 	
+    <!--避免IE执行AJAX时，返回JSON出现下载文件  
+    <bean id="mappingJacksonHttpMessageConverter"  
+        class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
+        <property name="supportedMediaTypes">  
+            <list>  
+                <value>text/html;charset=UTF-8</value>  
+            </list>  
+        </property>  
+    </bean>
+     -->  
+    <!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射
+    <bean  
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+        <property name="messageConverters">  
+            <list>  
+                <ref bean="mappingJacksonHttpMessageConverter" />  JSON转换器 
+            </list>  
+        </property>  
+    </bean>    --> 
+	 
 	<!-- 4.配置一个拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
