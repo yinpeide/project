@@ -30,4 +30,14 @@
   	<servlet-name>servletTest</servlet-name>
   	<url-pattern>/servlet/access</url-pattern>
   </servlet-mapping>
+  
+  	<!-- 显示投资人饼状图-->
+	<servlet>
+		<servlet-name>viewInvScale</servlet-name>
+		<servlet-class>com.itcast.jfreechart.ViewInvScaleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewInvScale</servlet-name>
+		<url-pattern>/servlet/viewInvScale</url-pattern>
+	</servlet-mapping>
 </web-app>
