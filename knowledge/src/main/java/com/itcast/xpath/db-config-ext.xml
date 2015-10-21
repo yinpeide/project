@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<db-config>
+	
+	<db-type>mysql</db-type>
+
+	<db type="oracle">
+		<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+		<url>jdbc:oracle:thin:@192.168.1.100:1521:bjpowernode</url>
+		<user>egov</user>
+		<password>bjpowernode</password>	
+	</db>
+
+
+	<db type="mysql">
+		<driver-class>com.mysql.jdbc.Driver</driver-class>
+		<url>jdbc:mysql://localhost:3306/test</url>
+		<user>root</user>
+		<password>123</password>	
+	</db>
+
+</db-config>
