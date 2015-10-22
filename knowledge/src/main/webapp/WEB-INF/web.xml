@@ -40,4 +40,13 @@
 		<servlet-name>viewInvScale</servlet-name>
 		<url-pattern>/servlet/viewInvScale</url-pattern>
 	</servlet-mapping>
+	<!-- 网页端显示 -->
+	<servlet>
+		<servlet-name>servletBroke</servlet-name>
+		<servlet-class>com.itcast.jfreechart.FruitJfree</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servletBroke</servlet-name>
+		<url-pattern>/servlet/brokeline</url-pattern>
+	</servlet-mapping>
 </web-app>

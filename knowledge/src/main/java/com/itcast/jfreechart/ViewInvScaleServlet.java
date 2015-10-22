@@ -13,7 +13,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
- * 显示企业投资人的投资比例饼状图
+ * 在页面显示企业投资人的投资比例饼状图
  * @author Administrator
  */
 public class ViewInvScaleServlet extends HttpServlet {

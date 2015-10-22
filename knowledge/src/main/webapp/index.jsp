@@ -15,7 +15,9 @@
    		    <tr>
               <td height="18" bgcolor="#FFFFFF"><div align="left" class="STYLE2 STYLE1" style="cursor:hand" onmouseover="doOver();" onmouseout="doOut();">显示一个饼图</div></td>
             </tr>
-            <a href="jfreechart/webBrokenLine.jsp">显示一个网页端的折线图</a>
+            <a href="jfreechart/webBrokenLine.jsp">显示一个网页端的折线图jsp</a>
+            <br>
+            <a href="${pageContext.request.contextPath}/servlet/brokeline">显示一个网页端的折线图servlet</a>
 		</body>
 </html>
 <script>
