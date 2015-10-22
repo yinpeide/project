@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+
+<dwr>
+	<allow>
+		<!-- 
+			creator="new",表示由DWR创建相关的类，也可以取值Spring，表示从Spring的IoC容器中获取对象
+			javascript="userService"，会创建一个userService的JavaScript对象，会生成一个userService.js文件
+		 -->
+		<create creator="new" javascript="userService">
+			<!-- 
+				name="class",表示value的值必须是类的完整路径
+				name="bean",value的值必须是Spring IoC容器中对象的id值
+			 -->
+			<param name="class" value="com.itcast.dwr.UserService"></param>
+		</create>
+	</allow>
+</dwr>
