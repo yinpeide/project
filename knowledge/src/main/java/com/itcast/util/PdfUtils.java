@@ -1,4 +1,4 @@
-package com.utils;
+package com.itcast.util;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

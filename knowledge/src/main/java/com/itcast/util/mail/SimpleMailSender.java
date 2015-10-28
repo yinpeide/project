@@ -1,4 +1,4 @@
-package com.utils.mail;  
+package com.itcast.util.mail;  
   
 import java.util.Date;
 import java.util.Properties;

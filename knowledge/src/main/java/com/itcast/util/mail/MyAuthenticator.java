@@ -1,4 +1,4 @@
-package com.utils.mail;  
+package com.itcast.util.mail;  
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;

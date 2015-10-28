@@ -1,7 +1,7 @@
-package com.utils;
+package com.itcast.util;
 
-import com.utils.mail.MailSenderInfo;
-import com.utils.mail.SimpleMailSender;
+import com.itcast.util.mail.MailSenderInfo;
+import com.itcast.util.mail.SimpleMailSender;
 
 /**
  * @author 尹培德

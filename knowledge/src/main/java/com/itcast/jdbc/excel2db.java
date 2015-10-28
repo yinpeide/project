@@ -10,8 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import com.itcast.excel.ExcelReader;
 import com.itcast.util.DateUtils;
+import com.itcast.util.ExcelUtils;
 
 import jxl.read.biff.BiffException;
 
@@ -35,7 +35,7 @@ public class excel2db {
 		try {
 			con.setAutoCommit(false);
 			String excelFileName = "/Users/ade/Downloads/jdbcTest.xls";
-			List<String[]> list = ExcelReader.readExcel(new File(excelFileName), 2);
+			List<String[]> list = ExcelUtils.readExcel(new File(excelFileName), 2);
 			int i=0;
 			for(String[] strAttr : list){
 				PreparedStatement pstmt = (PreparedStatement) con.prepareStatement(sql);

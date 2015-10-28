@@ -3,7 +3,7 @@
  *2015年8月4日
  * 
  */
-package com.utils;
+package com.itcast.util;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.utils;
+package com.itcast.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
