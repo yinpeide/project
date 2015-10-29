@@ -1,4 +1,4 @@
-package com.itcast.jfreechart;
+package com.itcast.jfreechart.client;
 
 import javax.swing.JPanel;
 

@@ -1,4 +1,4 @@
-package com.itcast.jfreechart;
+package com.itcast.jfreechart.client;
 
 import java.awt.Font;
 import java.io.FileOutputStream;
